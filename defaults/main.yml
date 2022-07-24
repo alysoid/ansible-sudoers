@@ -1,0 +1,6 @@
+---
+# List of sudoers configuration files
+sudoers: []
+
+# Remove all existing configuration files when true
+sudoers_cleanup: false
