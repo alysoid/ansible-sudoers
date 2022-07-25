@@ -12,14 +12,14 @@
     path: /etc/sudoers.d
     excludes: "*.*,*~"
   register: existing_config
-  when: sudoers_cleanup
+  when: catena_sudoers_cleanup
 
 - name: Remove existing configuration files
   ansible.builtin.file:
     path: "{{ item.path }}"
     state: absent
   loop: "{{ existing_config.files }}"
-  when: sudoers_cleanup
+  when: catena_sudoers_cleanup
 
 - name: Generate and validate configuration files
   ansible.builtin.template:
@@ -33,4 +33,4 @@
     - runas: "{{ item.runas | default('') }}"
     - nopasswd: "{{ item.nopasswd | default(' ') }}"
     - commands: "{{ item.commands | join(', ') }}"
-  loop: "{{ sudoers }}"
+  loop: "{{ catena_sudoers }}"

@@ -4,16 +4,15 @@ Manage [sudoers](https://man.archlinux.org/man/sudoers.5) — default sudo secur
 
 ## Role variables
 
-### `sudoers`
+See [`defaults/main.yml`](defaults/main.yml) for details.
+
+### `catena_sudoers`
 
 List of sudoers configuration files which work similar to [community.general.sudoers](https://docs.ansible.com/ansible/latest/collections/community/general/sudoers_module.html) module.
 
 ```yaml
-# Default
-sudoers: []
-
 # Example
-sudoers:
+catena_sudoers:
   # Keep EDITOR env variable when the `env_reset` flag is ON (default).
   - name: 01-keep-env-editor
     desc: Keep EDITOR environment variable
